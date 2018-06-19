@@ -1,0 +1,12 @@
+[Unit]
+Description=downloads photos from camera
+
+[Service]
+Type=simple
+ExecPreStart=gphoto2 --set-config capturetarget=1
+ExecStart=gphoto2 --wait-event-and-download=999 -q --hook-script=/usr/local/bin/postProcessCameraDownload --keep
+Restart=1
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ $ACTION = "download"]; then
+  if [ $ARGUMENT ]; then
+    if [[ $ARGUMENT =~ .+\.[jpg|JPG] ]]
+      DIRNAME=$(dirname "$ARGUMENT")
+      BASENAME=$(basename "$ARGUMENT")
+    fi
+  fi
+fi
