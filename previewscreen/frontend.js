@@ -1,7 +1,9 @@
 const Config = require('electron-config');
 var chokidar = require('chokidar');
 var fs = require('fs');
-var $ = require('jquery');
+
+window.$ = window.jQuery = require('jquery');
+
 
 const config = new Config();
 var imagePath = config.get('imagePath');
@@ -16,7 +18,7 @@ var timer;
 
 currentWatcher.on('change', path => {
 	fs.readFile(path, 'utf8', function(err, data) {
-  		if (err) throw err;
+  		if (err) throw alert(err);
   		if (timer) {
   			window.clearTimeout(timer);
   		}
@@ -29,5 +31,5 @@ currentWatcher.on('change', path => {
 });
 
 $(document).ready(function() {
-	window.$previewImage = $('#previewImage')
+	window.$previewImage = $('#previewImage');
 });

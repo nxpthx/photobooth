@@ -1,11 +1,10 @@
 'use strict';
 const electron = require('electron');
 
-
 const app = electron.app;
 
 // adds debug features like hotkeys for triggering dev tools and reload
-require('electron-debug')();
+//require('electron-debug')();
 
 // prevent window being garbage collected
 let mainWindow;
@@ -20,8 +19,10 @@ function createMainWindow() {
 	const win = new electron.BrowserWindow({
 		kiosk: true,
 		title: "PhotoBooth",
-		icon: `file://${__dirname}/schriftzug.png`
+		icon: `file://${__dirname}/schriftzug.png`,
 	});
+
+    //win.webContents.openDevTools();
 
 	win.loadURL(`file://${__dirname}/index.html`);
 	win.on('closed', onClosed);
