@@ -3,8 +3,10 @@ Description=downloads photos from camera
 
 [Service]
 Type=simple
+WorkingDirectory=/home/pi/pictures
 ExecPreStart=gphoto2 --set-config capturetarget=1
 ExecStart=gphoto2 --wait-event-and-download=999 -q --hook-script=/usr/local/bin/postProcessCameraDownload --keep
+User=pi
 Restart=1
 
 

@@ -1,10 +1,12 @@
 #!/bin/sh
 
-if [ $ACTION = "download"]; then
+if [ $ACTION = "download" ]; then
   if [ $ARGUMENT ]; then
     if [[ $ARGUMENT =~ .+\.[jpg|JPG] ]]
       DIRNAME=$(dirname "$ARGUMENT")
       BASENAME=$(basename "$ARGUMENT")
+
+      echo "§{BASENAME}" > ${DIRNAME}/currentImage.txt
     fi
   fi
 fi
