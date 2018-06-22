@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IMAGEPATH=/home/pi/pictures
+IMAGEPATH=/home/pi/Pictures
 
 
 apt install gphoto2
@@ -10,14 +10,19 @@ chmod a+x /usr/local/bin/postProcessCameraDownload
 
 touch ${IMAGEPATH}/currentImage.txt
 
-mkdir -p /home/pi/.config/PhotoBooth
-echo <<<EOF > /home/pi/.config/PhotoBooth/config.json
+mkdir -p /home/pi/.config/Photobooth
+cat <<EOF > /home/pi/.config/Photobooth/config.json
 {
     "imagePath": "${IMAGEPATH}"
 }
 EOF
 
-cp systemd/gphotodownloader.service /etc/systemd/system/
+chown -R pi:pi /home/pi/.config/Photobooth
+chown pi:pi ${IMAGEPATH}/currentImage.txt
+
+cp -f systemd/gphotodownloader.service /etc/systemd/system/
 systemctl reload
 systemctl enable gphotodownloader
 systemctl start gphotodownloader
+
+cp -r previewscreen/dist/Photobooth-linux-armv7l /opt/photobooth
