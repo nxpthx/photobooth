@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Guestbook</title>
+    <link type="text/css" rel="stylesheet" href="node_modules/lightgallery.js/dist/css/lightgallery.css" />
+    <link type="text/css" rel="stylesheet" href="node_modules/lightgallery.js/dist/css/lg-transitions.css" />
+    <script src="node_modules/lightgallery.js/dist/js/lightgallery.js"></script>
+    <style>
+        body {
+            background-color: darkblue;
+            color:white;
+        }
+        a {
+
+            color:gold;
+        }
+
+        #lightgallery {
+            list-style-type: none;
+            list-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #lightgallery  li {
+            padding: 0;
+            margin: 0;
+            display: inline;
+        }
+
+        #lightgallery  li  a {
+            background: #fff;
+            display: inline;
+            float: left;
+            margin: 0 0 27px 30px;
+            width: auto;
+            padding: 10px 10px 45px;
+            text-align: center;
+            font-family: "Marker Felt", sans-serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            -webkit-transition: -webkit-transform .15s linear;
+            /*-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
+           # -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, .25);*/
+            box-shadow: 0 3px 10px 2px rgba(0, 0, 0, .5);
+        }
+
+        #lightgallery  li  a img {
+            width:143px;
+            height:auto;
+        }
+
+        #lightgallery li  a:after {
+            content: attr(title);
+        }
+
+        #lightgallery li a {
+            -webkit-transform: rotate(-2deg);
+            -moz-transform: rotate(-2deg);
+        }
+
+        /* Rotate all even images 2 degrees */
+        #lightgallery li:nth-child(even) a {
+            -webkit-transform: rotate(2deg);
+            -moz-transform: rotate(2deg);
+        }
+
+        /* Don't rotate every third image, but offset its position */
+        #lightgallery li:nth-child(3n) a {
+            -webkit-transform: none;
+            -moz-transform: none;
+            position: relative;
+            top: -5px;
+        }
+
+        /* Rotate every fifth image by 5 degrees and offset it */
+        #lightgallery li:nth-child(5n) a {
+            -webkit-transform: rotate(5deg);
+            -moz-transform: rotate(5deg);
+            position: relative;
+            right: 5px;
+        }
+
+        /* Keep default rotate for every eighth, but offset it */
+        #lightgallery li:nth-child(8n) a {
+            position: relative;
+            top: 8px;
+            right: 5px;
+        }
+
+        /* Keep default rotate for every eleventh, but offset it */
+        #lightgallery li:nth-child(11n) a {
+            position: relative;
+            top: 3px;
+            left: -5px;
+        }
+        #lightgallery  li  a:hover {
+            -webkit-transform: scale(1.25);
+            -moz-transform: scale(1.25);
+            position: relative;
+            z-index: 5;
+        }
+        .lg-outer.withSidebar .lg-img-wrap {
+            padding-right: 400px !important; }
+        div.sidebar {
+            left:auto;
+            height: 100%;
+            overflow-y: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-top:50px;
+            width: 400px;
+            z-index: 99999;
+            background-color:white;
+        }
+        .lg-backdrop {
+            background-color:darkblue;
+        }
+        div.invisible {
+            display:none;
+            visibility: hidden;;
+        }
+    </style>
+</head>
+<body><h1>Unser Gästebuch</h1>
+<a href="#">Gästebuch ansehen</a> | <a href="#">Einträge erstellen</a>
+<ul id="lightgallery">
+    <li>
+        <a href="https://placeimg.com/2048/1536?.jpg" data-sub-html="#sub1">
+            <img src="https://placeimg.com/286/191?134157654756"/>
+        </a>
+    </li>
+    <li><a href="https://placeimg.com/2048/1536?.jpg" data-sub-html-url="entry.html">
+        <img src="https://placeimg.com/286/191?4534534554"/>
+    </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536?.jpg">
+            <img src="https://placeimg.com/286/191?454352353423"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536?.jpg">
+            <img src="https://placeimg.com/286/191?45235235453"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?123686743"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?134157654756"/>
+        </a>
+    </li>
+    <li><a href="https://placeimg.com/2048/1536/people?.jpg">
+        <img src="https://placeimg.com/286/191?4534534554"/>
+    </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?454352353423"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?45235235453"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?123686743"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?134157654756"/>
+        </a>
+    </li>
+    <li><a href="https://placeimg.com/2048/1536/people?.jpg">
+        <img src="https://placeimg.com/286/191?4534534554"/>
+    </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?454352353423"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?45235235453"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?123686743"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?134157654756"/>
+        </a>
+    </li>
+    <li><a href="https://placeimg.com/2048/1536/people?.jpg">
+        <img src="https://placeimg.com/286/191?4534534554"/>
+    </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?454352353423"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?45235235453"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://placeimg.com/2048/1536/people?.jpg">
+            <img src="https://placeimg.com/286/191?123686743"/>
+        </a>
+    </li>
+</ul>
+<script type="text/javascript">
+    lightGallery(document.getElementById('lightgallery'), {
+        download: false,
+        counter: false,
+        dynamic: false,
+        selector: 'a',
+        preload: 2,
+        hideControlOnEnd: true,
+        getCaptionFromTitleOrAlt: false,
+        appendSubHtmlTo: '.lg-item',
+        addClass: 'withSidebar'
+    });
+</script>
+<div class="invisible" id="sub1">
+    <div class="sidebar">
+        <h1>Einträge zu diesem Bild</h1>
+        <input type="button">Neuen Gästebuch eintrag anlegen</input>
+        <h2>vorhandene Einträge</h2>
+        <ul>
+            <li>von Steffi & Steffen<br>bearbeiten | löschen</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

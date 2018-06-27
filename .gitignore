@@ -1,4 +1,4 @@
-previewscreen/node_modules
+node_modules
 previewscreen/dist/Photobooth-linux-ia32
 previewscreen/dist/Photobooth-linux-x64
 previewscreen/dist/Photobooth-linux-arm64
