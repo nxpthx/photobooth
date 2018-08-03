@@ -1,3 +1,6 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app_index:
+    path: /
+    controller: App\Controller\OverviewController::index
+app_fileCount:
+    path: /fileCount
+    controller: App\Controller\OverviewController::fileCount

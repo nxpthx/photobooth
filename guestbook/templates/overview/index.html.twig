@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gästebuch Steffi & Steffen</h1>
+    <nav>Gästebuch durchblättern | Photos ansehen</nav>
+    <ul id="lightgallery">
+        {% for file in files %}
+        <li>
+            <a href="/photos/{{ file }}" data-sub-html="#sub{{ file|md5 }}">
+                <img src="/photos/{{ file }}"/>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <script type="text/javascript">
+        window.imageCount = {{ number }};
+    </script>
+    {% for file in files %}
+    <div class="invisible" id="sub{{ file|md5 }}">
+        <div class="sidebar">
+            <h2>Einträge zu diesem Bild</h2>
+            <a href="">Neuen Gästebuch-Eintrag anlegen</a>
+            {% if guestBookData[ file ] is defined %}
+            <h3>vorhandene Einträge</h3>
+            <ul>
+                {% for index, entry in guestBookData[ file ] %}
+                <li>von {{ entry.author }}<br>bearbeiten | löschen</li>
+                {%  endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
