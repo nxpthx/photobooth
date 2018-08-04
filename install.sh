@@ -25,4 +25,5 @@ systemctl reload
 systemctl enable gphotodownloader
 systemctl start gphotodownloader
 
+rm -rf /opt/photobooth
 cp -r previewscreen/dist/Photobooth-linux-armv7l /opt/photobooth
