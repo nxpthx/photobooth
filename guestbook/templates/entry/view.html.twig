@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="book-view">
+        <div>
+            <img src="/photos/{{ fileName }}" />
+        </div>
+        <div>
+            <p>{{ entries[fileName][number]['message']|nl2br }}</p>
+            <p>von {{ entries[fileName][number]['author'] }}</p>
+        </div>
+        <nav>
+            <a href="{{ path('entry_view', {'fileName': previous['fileName'], 'number': previous['number']}) }}">vorheriger Eintrag</a>
+            <a href="{{ path('entry_view', {'fileName': next['fileName'], 'number': next['number']}) }}">nächster Eintrag</a>
+        </nav>
+    </div>
+
+{% endblock %}

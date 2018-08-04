@@ -30,12 +30,4 @@ class OverviewController extends Controller
         return new Response(count($this->getFiles()));
     }
 
-    public function fileInfo(string $fileName) {
-        $fileName = base64_decode($fileName);
-
-        return $this->render('overview/fileInfo.html.twig', [
-            'number' => count($files),
-            'files' => $files
-        ]);
-    }
 }

@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Gästebuch Steffi & Steffen</h1>
-    <nav>Gästebuch durchblättern | Photos ansehen</nav>
+
     <ul id="lightgallery">
         {% for file in files %}
         <li>
@@ -19,14 +18,19 @@
     <div class="invisible" id="sub{{ file|md5 }}">
         <div class="sidebar">
             <h2>Einträge zu diesem Bild</h2>
-            <a href="">Neuen Gästebuch-Eintrag anlegen</a>
+            <a href="{{ path('entry_new', {'fileName': file}) }}">Neuen Gästebuch-Eintrag anlegen</a>
             {% if guestBookData[ file ] is defined %}
             <h3>vorhandene Einträge</h3>
-            <ul>
+            <ol>
                 {% for index, entry in guestBookData[ file ] %}
-                <li>von {{ entry.author }}<br>bearbeiten | löschen</li>
+                    <li>
+                        von "{{ entry.author }}"
+                        <br>
+                       <nav> <a href="{{ path('entry_edit', {'fileName': file, 'number': index}) }}">bearbeiten</a>
+                        <a href="{{ path('entry_view', {'fileName': file, 'number': index}) }}">ansehen</a></nav>
+                    </li>
                 {%  endfor %}
-            </ul>
+            </ol>
             {% endif %}
         </div>
     </div>

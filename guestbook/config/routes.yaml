@@ -4,3 +4,19 @@ app_index:
 app_fileCount:
     path: /fileCount
     controller: App\Controller\OverviewController::fileCount
+
+entry_new:
+    path: /entry/{fileName}/new
+    controller: App\Controller\EntryController::newEntry
+
+entry_edit:
+    path: /entry/{fileName}/{number}/edit
+    controller: App\Controller\EntryController::editEntry
+
+entry_view:
+    path: /entry/{fileName}/{number}
+    controller: App\Controller\EntryController::view
+
+entry_browse:
+    path: /entry/browse
+    controller: App\Controller\EntryController::first

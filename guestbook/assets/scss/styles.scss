@@ -1,17 +1,33 @@
 $color-blue: #0c2444;
 $color-gold: #a17f46;
 
+@import 'fonts';
+
 html, body {
   margin:0;
   padding:0;
   background-color:$color-blue;
+  font-family: "Baar Sophia";
 }
+
 
 h1 {
   color:$color-gold;
+  font-family: "Mellony Dry Brush";
+  font-weight:normal;
+  font-size:40px;
   text-align:center;
 }
-
+nav {
+  margin:16px auto;
+  width:400px;
+  display:flex;
+  a {
+    flex:1;
+    color:white;
+    text-align: center;
+  }
+}
 $lg-theme: $color-blue;
 $lg-toolbar-bg: $color-blue;
 @import '../../node_modules/lightgallery.js/src/sass/lightgallery.scss';
@@ -122,8 +138,99 @@ div.sidebar {
   position: absolute;
   right: 0;
   top: 0;
-  padding-top:50px;
+  padding:50px;
   width: 400px;
   z-index: 99999;
   background-color:white;
+  text-align: left;
+
+  color:$color-blue;
+  h2, h3, > a {
+    display:block;
+    text-align: center;
+  }
+  a {
+    color:$color-gold;
+  }
+
+  ol {
+    padding-left:13px;
+  }
+  ol li nav {
+    width:100%;
+    margin:8px 0 20px 0;
+    a {
+      text-align: left;
+    }
+  }
+
+
+}
+div.book-view {
+  background-image:url(../img/book.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  height:600px;
+  overflow: hidden;
+
+  div:first-child {
+    margin:10px 0px 0px 150px;
+    width:370px;
+    float:left;
+    img {
+      width:100%;
+      height:auto;
+    }
+  }
+  div:nth-child(2) {
+    margin:150px 0px 0px 20px;
+    width:300px;
+    float:left;
+
+  }
+  nav {
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    clear:left;
+  }
+}
+body > h2 {
+  text-align:center;
+  color:white;
+  font-weight: normal;
+}
+div#form {
+  margin:16px 50px;
+  > div {
+
+    margin-bottom:8px;
+  }
+  label {
+    display:inline-block;
+    width:110px;
+    color:$color-gold;
+    vertical-align: top;
+  }
+  input {
+    width:750px;
+    height:30px;
+    font-size:16px;
+  }
+  textarea {
+    width:750px;
+    font-size:16px;
+    min-height:300px;
+  }
+  button {
+    display:block;
+    margin:8px auto;
+    background-color:$color-gold;
+    color:$color-blue;
+    font-size:16px;
+    padding:10px;
+    text-align:center;
+    border:0px none;
+    border-radius:5px;
+  }
 }
