@@ -13,20 +13,21 @@ var $previewImage = null;
 var imageProcessing = false;
 
 var takePicture = function() {
-  const process = require('child_process');
+  cameraProcess = require('child_process').exec;
 
-  var cmd = "gphoto2 --capture-image-and-download --keep";
-  var cameraProcess = process.spawn(cmd); 
-
-  cameraProcess.on('close', function (code) {
-    if (code == 0) {
-
-    } else {
-      imageProcessing = false
-      $('#processingLayer').hide();
+  var cmd = "/usr/bin/gphoto2 --capture-image-and-download --keep -q --hook-script=/usr/local/bin/postProcessCameraDownload";
+  cameraProcess.exec(
+    cmd,
+    {
+      cwd: imagePath
+    }, 
+    (err, stdout, stderr) => {
+      if (err) {
+        imageProcessing = false
+        $('#processingLayer').hide();
+      }
     }
-  });
-
+  );
 }
 
 var currentWatcher = chokidar.watch(imagePath + "/currentImage.txt", {

@@ -22,8 +22,9 @@ chown pi:pi ${IMAGEPATH}/currentImage.txt
 
 cp -f systemd/gphotodownloader.service /etc/systemd/system/
 systemctl reload
-systemctl enable gphotodownloader
-systemctl start gphotodownloader
+#systemctl enable gphotodownloader
+#systemctl start gphotodownloader
 
 rm -rf /opt/photobooth
 cp -r previewscreen/dist/Photobooth-linux-armv7l /opt/photobooth
+chmod a+x /opt/photobooth/Photobooth
