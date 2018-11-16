@@ -16,12 +16,14 @@ var takePicture = function() {
   cameraProcess = require('child_process').exec;
 
   var cmd = "/usr/bin/gphoto2 --capture-image-and-download --keep -q --hook-script=/usr/local/bin/postProcessCameraDownload";
-  cameraProcess.exec(
+  cameraProcess(
     cmd,
     {
       cwd: imagePath
     }, 
     (err, stdout, stderr) => {
+      alert(stdout);
+      alert(stderr);
       if (err) {
         imageProcessing = false
         $('#processingLayer').hide();
