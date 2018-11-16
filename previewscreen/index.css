@@ -23,3 +23,146 @@ body {
 	object-fit:cover;
 	display:none;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+svg {
+  display: inline-block;
+}
+
+.no-select {
+  cursor: default;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#film-container {
+  width: 100vw;
+  height: 100vw;
+  background-size: 100% 100%;
+}
+#film-countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.animated-flicker {
+  height: 100vh;
+  animation: flicker 3s 1;
+  opacity: 0.2;
+}
+
+#numbers text {
+  fill: black;
+  font: bold 120px Arial, sans-serif;
+  letter-spacing: -10px;
+  opacity: 0;
+}
+.circle01 {
+  fill: none;
+  stroke: #111;
+  stroke-width: 1.5px;
+}
+.circle02 {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.3);
+  stroke-dasharray: 1 3200;
+  stroke-width: 989;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+.line01, .line02 {
+  stroke: #deedee;
+}
+.rectangle01 {
+  fill: gray;
+}
+
+/*** END RADIO DIAL ***/
+
+.animated-rotate {
+  animation: rotate 1s 3;
+}
+
+#animated-text1 {
+  animation: countdown 1s 1;
+  animation-delay: 0s;
+}
+#animated-text2 {
+  animation: countdown 1s 1;
+  animation-delay: 1s;
+}
+#animated-text3 {
+  animation: countdown 1s 1;
+  animation-delay: 2s;
+}
+
+@keyframes countdown {
+  0% { opacity: 1; }
+  99% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.45; }
+  10% { opacity: 0.7; }
+  23% { opacity: 0.85; }
+  30% { opacity: 0.4; }
+  41% { opacity: 0.6; }
+  46% { opacity: 0.8; }
+  53% { opacity: 0.4; }
+  60% { opacity: 0.75; }
+  75% { opacity: 0.5; }
+  79% { opacity: 0.55; }
+  100% { opacity: 0.1; }
+}
+
+@keyframes rotate {
+  100% { stroke-dasharray: 3200 0; }
+}
+
+div#countdownLayer,
+div#processingLayer {
+	display:none;
+}
+
+div#processingLayer {
+	width:100vw;
+	height:100vh;
+	background-color:rgba(255,255,255,0.9);
+	text-align:center;
+	line-height:100vh;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #293176;
+  border-color: #293176 transparent #293176 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
