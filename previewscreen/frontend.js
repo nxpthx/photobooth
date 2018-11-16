@@ -22,8 +22,6 @@ var takePicture = function() {
       cwd: imagePath
     }, 
     (err, stdout, stderr) => {
-      alert(stdout);
-      alert(stderr);
       if (err) {
         imageProcessing = false
         $('#processingLayer').hide();
